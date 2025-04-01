@@ -1,0 +1,51 @@
+server:
+  port: 8080
+
+#decorator:
+#  datasource:
+#    p6spy:
+#      enable-logging: true
+
+logging:
+  level:
+#    p6spy: info
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
+
+spring:
+  messages:
+    basename: messages
+
+  sql:
+    init:
+      mode: always
+
+  datasource:
+    # url, username, password는 각각 본인 db에 맞는 값 넣기
+    url: jdbc:h2:tcp://localhost/~/userservicetestdb
+    username: sa
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    defer-datasource-initialization: true
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+#  security:
+#    user:
+#      name: username
+#      password: passw0rd
+
+#springdoc:
+#  api-docs:
+#    enabled: true
+#  swagger-ui:
+#    enabled: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
