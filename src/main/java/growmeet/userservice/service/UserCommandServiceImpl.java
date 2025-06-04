@@ -30,6 +30,7 @@ public class UserCommandServiceImpl implements UserCommandService {
         return userRepository.save(user);
     }
 
+    //test
     // 추후 CQRS 패턴 도입 시 QueryService로 이동하고 CommandService는 의존함
     // 신경쓰지 말 것
     private User getUserById(Long id) {
